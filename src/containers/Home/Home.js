@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions/actions';
 import * as actions from '../../store/actions/index';
+
+
+import CoinList from '../../components/Home/CoinList'
 
 class Home extends Component {
 
@@ -12,16 +14,7 @@ class Home extends Component {
     render() {
         return(
             <div>
-                <h1>Home</h1>
-                {this.props.coins.map((coin) => (
-                        <div>
-                            {coin.CoinInfo.Name}
-                            {coin.CoinInfo.FullName}
-                        </div>
-
-                    
-                ))}
-                <button onClick={this.onLoad}></button>
+                <CoinList coins={this.props.coins} />
             </div>
         )
     }

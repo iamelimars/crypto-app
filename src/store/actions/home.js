@@ -24,7 +24,8 @@ export const fetchCoinsStart = () => {
 
 export const fetchCoins = () => {
     return dispatch => {
-        axios.get('https://min-api.cryptocompare.com/data/top/mktcap?limit=100&tsym=USD&api_key=e4928b865771a7b00008cb9c1197540f3242e45bc1ce8dbc67fb9b627108a5c7')
+        dispatch(fetchCoinsStart())
+        axios.get('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD&api_key=e4928b865771a7b00008cb9c1197540f3242e45bc1ce8dbc67fb9b627108a5c7')
             .then ( res => {
                 console.log(res.data.Data);
                 dispatch(fetchCoinsSuccess(res.data.Data))

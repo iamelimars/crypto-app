@@ -7,6 +7,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import reducer from './store/reducers/home';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -15,14 +16,18 @@ const composeEnhancers =
       // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
     }) : compose;
 
-    const rootReducer = combineReducers({reducer})
+    // const rootReducer = combineReducers({reducer})
 
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
-ReactDOM.render(<Provider store={store}>
+ReactDOM.render(
+            <BrowserRouter>
+                <Provider store={store}>
                     <App />
-                </Provider>, document.getElementById('root'));
+                </Provider>
+            </BrowserRouter>, document.getElementById('root'));
+                
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
