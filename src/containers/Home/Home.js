@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 
-
-import CoinList from '../../components/Home/CoinList'
+import Navbar from '../../components/Common/Navbar/Navbar'
+import Sticky from '../../components/Home/StickyHeader/StickyHeader'
+import CoinList from '../../components/Home/CoinList/CoinList'
 
 class Home extends Component {
 
@@ -14,6 +15,8 @@ class Home extends Component {
     render() {
         return(
             <div>
+                <Navbar />
+                <Sticky />
                 <CoinList coins={this.props.coins} />
             </div>
         )

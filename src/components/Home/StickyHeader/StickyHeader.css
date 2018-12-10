@@ -1,0 +1,36 @@
+.sticky {
+    background-color: cadetblue;
+    height: 25px;
+    position: sticky;
+    top: 0;
+}
+
+.wrapper {
+    display: -webkit-box;
+    display: flex;
+    min-height: 25px;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0 25px;
+    margin: 0 auto;
+    max-width: 900px;
+    /* color: #324466; */
+    font-size: 10px;
+    
+}
+
+.profile {
+    width: 37.5%;
+}
+
+.price {
+    width: 25%;
+}
+
+.marketCap {
+    width: 25%;
+}
+
+.change {
+    width: 12.5%;
+}

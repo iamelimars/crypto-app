@@ -1,5 +1,5 @@
 import React from 'react'
-import CoinListItem from './CoinListItem';
+import CoinListItem from '../CoinListItem/CoinListItem';
 
 const coinList = ( props ) => {
     return (
