@@ -1,7 +1,7 @@
 .coin {
     display: block;
     /* display: flex; */
-    border-bottom: 1px solid #E3F0FF;
+    border-bottom: 1px solid #3F496B;
     text-decoration: none;
 }
 
@@ -14,8 +14,9 @@
     padding: 0 25px;
     margin: 0 auto;
     max-width: 900px;
-    color: #324466;
+    color: #8E96B5;
     font-size: 14px;
+    font-weight: 600;
     
 }
 
@@ -41,8 +42,24 @@
     width: 25%;
 }
 
+/* 24H change */
 .change {
     width: 12.5%;
+}
+
+.positive {
+    background: rgba(42, 194, 122, 0.5);
+    color: #2ac27a;
+    /* color: green; */
+    padding: 1px 10px;
+    border-radius: 10px;
+}
+
+.negative {
+    background: rgba(255, 96, 96, 0.5); 
+    color: #ff6060;
+    padding: 1px 10px;
+    border-radius: 10px;
 }
 
 /* Tablet & Mobile */

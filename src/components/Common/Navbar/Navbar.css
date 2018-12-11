@@ -1,3 +1,65 @@
 .nav {
-    height: 100px;
+    /* height: 100px; */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
 }
+
+.logo {
+    height: 80px;
+}
+
+/* menu */
+.menu {
+    z-index: 2;
+    display: inline-block;
+    height: 80px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.top {
+    width: 20px;
+    height: 3px;
+    margin: 6px 0;
+    border-radius: 1.5px;
+    background-color: #8F7BE5;
+    transition: 0.4s;
+}
+
+.middle {
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    border-radius: 1.5px;
+    background-color: #B87BD9;
+    transition: 0.4s;
+}
+
+.bottom {
+    width: 10px;
+    height: 3px;
+    margin: 6px 0;
+    border-radius: 1.5px;
+    background-color: #FA75B1;
+    transition: 1.4s;
+}
+
+/* Menu animations */
+
+.changeTop {
+    -webkit-transform: rotate(-45deg) translate(-5px, 5px);
+    transform: rotate(-45deg) translate(-5px, 5px);
+    width: 30px;
+    background-color: white;
+}
+
+.changeMiddle {opacity: 0;}
+
+.changeBottom {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    width: 30px;
+    background-color: white;
+}
+

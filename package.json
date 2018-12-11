@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
+    "animejs": "^2.2.0",
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -50,6 +51,7 @@
     "redux-thunk": "^2.3.0",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
+    "splitting": "^1.0.6",
     "style-loader": "0.23.0",
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",
