@@ -22,6 +22,11 @@ class Home extends Component {
         this.props.onfetchCoins()
     }
 
+    componentWillReceiveProps() {
+        console.log(this.props.coins);
+        
+    }
+
     menuClickedHandler = () => {
         if (this.state.menuOpen === false) {
             this.setState({
@@ -61,7 +66,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-        coins: state.coins
+        coins: state.home.coins
     }
 }
 

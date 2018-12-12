@@ -8,7 +8,7 @@ import reducer from './store/reducers/home';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
-
+import coinReducer from './store/reducers/coin';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -17,10 +17,10 @@ const composeEnhancers =
       // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
     }) : compose;
 
-    // const rootReducer = combineReducers({reducer})
+    const rootReducer = combineReducers({home: reducer, coin: coinReducer})
 
 
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
             <BrowserRouter>

@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/coin/:id" component={Coin} />
+        <Route path="/coin/:coin" component={Coin} />
       </Switch>
     );
   }
