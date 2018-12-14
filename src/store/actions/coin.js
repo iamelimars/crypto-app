@@ -24,9 +24,9 @@ export const fetchCoinStart = () => {
 export const fetchCoin = (coin) => {
     return dispatch => {
         dispatch(fetchCoinStart())
-        axios.get(`https://min-api.cryptocompare.com/data/histominute?fsym=${coin}&tsym=USD&limit=10`)
+        return axios.get(`https://min-api.cryptocompare.com/data/histominute?fsym=${coin}&tsym=USD&limit=10`)
             .then( res => {
-                console.log(res.data);
+                // console.log(res.data);
                 dispatch(fetchCoinSuccess(res.data))
             })
             .catch( err => {

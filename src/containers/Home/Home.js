@@ -24,7 +24,7 @@ class Home extends Component {
 
     componentWillReceiveProps() {
         console.log(this.props.coins);
-        
+
     }
 
     menuClickedHandler = () => {

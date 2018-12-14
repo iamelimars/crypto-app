@@ -2,40 +2,76 @@ import React, { Component } from 'react';
 import Plot from 'react-plotly.js';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
+import * as moment from 'moment';
 
 class Coin extends Component {
 
-    componentDidMount() {
-        this.props.onFetchCoin(this.props.match.params.coin)
-        
-        
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            timeArray: [],
+            closeArray: []
+        }
+
     }
 
-   
-   
+
+
+
+
+
+    componentDidMount() {
+        let times = [];
+        let closePrices = [];
+        let time = "";
+
+        this.props.onFetchCoin(this.props.match.params.coin)
+            .then(() => {
+                this.props.coin.Data.map(coinData => {
+                    // Convert unix to time format
+                    time = moment.unix(coinData.time).format("DD MMM H:mm A");
+
+                    // Append to arrays
+                    times = [...times, time];
+                    closePrices = [...closePrices, coinData.close];
+                })
+            })
+            .then(() => {
+                this.setState({
+                    timeArray: [...times],
+                    closeArray: [...closePrices]
+                })
+                console.log(this.state);
+            })
+
+    }
+
+
+
 
     render() {
         return (
             <div>
-                
-                {this.props.loading ? 
+
+                {this.props.loading ?
                     <div>Loading...</div>
                     :
                     <div>
                         {this.props.coin.TimeFrom}
-                        <Plot 
+                        <Plot
                             data={[
                                 {
-                                    x:[1, 2, 3],
-                                    y:[2, 6, 3],
+                                    x: [1, 2, 3],
+                                    y: [2, 6, 3],
                                     type: 'scatter',
                                     mode: 'lines',
-                                    line: {color: 'green'},
+                                    line: { color: 'green' },
                                 }
                             ]}
-                            layout={ {
-                                width: '100%', 
-                                height: '100%', 
+                            layout={{
+                                width: '100%',
+                                height: '100%',
                                 paper_bgcolor: 'transparent',
                                 plot_bgcolor: 'transparent',
                                 scene: {
@@ -60,14 +96,14 @@ class Coin extends Component {
                                         showticklabels: false
                                     },
                                 }
-                            } }
-                            config={ {displayModeBar: false} }
+                            }}
+                            config={{ displayModeBar: false }}
                         />
                     </div>
-                    
+
 
                 }
-                
+
 
             </div>
         )
