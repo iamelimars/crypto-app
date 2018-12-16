@@ -6,22 +6,23 @@ import styles from './CoinListItem.css'
 const coinListItem = ( props ) => {
     return (
         <div className="coins">
-            <Link className={styles.coin} to={`/coin/${props.coin.CoinInfo.Internal}`}>
+            <Link className={styles.coin} to={`/coin/${props.coin.id}`}>
                 <div className={styles.wrapper}> 
                     <div className={styles.profile}>
-                        <img className={styles.logo} src={`https://www.cryptocompare.com${props.coin.CoinInfo.ImageUrl}`} alt="" width="23" height="23"/>
-                        <span className={styles.name}>{props.coin.CoinInfo.FullName}</span>
+                        {/* <img className={styles.logo} src={`https://www.cryptocompare.com${props.coin.CoinInfo.ImageUrl}`} alt="" width="23" height="23"/> */}
+                        <img className={styles.logo} src={props.coin.iconUrl} alt="" width="23" height="23"/>
+                        <span className={styles.name}>{props.coin.name}</span>
                     </div>
                     <div className={styles.price}>
-                        <span>{props.coin.DISPLAY.USD.PRICE}</span>
+                        <span>{props.coin.price}</span>
                     </div>
                     <div className={styles.marketCap}>
-                        <span>{props.coin.DISPLAY.USD.MKTCAP}</span>
+                        <span>{props.coin.marketCap}</span>
                     </div>
                     <div className={styles.change}>
-                    { props.coin.RAW.USD.CHANGEPCT24HOUR > 0 ?
-                        <span className={styles.positive}>{props.coin.DISPLAY.USD.CHANGEPCT24HOUR}%</span> :
-                        <span className={styles.negative}>{props.coin.DISPLAY.USD.CHANGEPCT24HOUR}%</span>
+                    { props.coin.change > 0 ?
+                        <span className={styles.positive}>{props.coin.change}%</span> :
+                        <span className={styles.negative}>{props.coin.change}%</span>
                     }
                     </div>
                     

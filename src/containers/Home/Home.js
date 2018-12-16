@@ -20,10 +20,13 @@ class Home extends Component {
 
     componentDidMount() {
         this.props.onfetchCoins()
+            .then(() => {
+                console.log(this.props.coins);
+            })
     }
 
     componentWillReceiveProps() {
-        console.log(this.props.coins);
+        
 
     }
 
@@ -58,7 +61,12 @@ class Home extends Component {
                 </div>
                 <Navbar menuStatus={this.state.menuOpen} menuClicked={() => this.menuClickedHandler()} />
                 <Sticky />
-                <CoinList coins={this.props.coins} />
+                {this.props.coins ?
+                    <CoinList coins={this.props.coins} />
+                    : 
+                    null
+                }
+                
             </div>
         )
     }
@@ -66,7 +74,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-        coins: state.home.coins
+        coins: state.home.coins.coins
     }
 }
 
