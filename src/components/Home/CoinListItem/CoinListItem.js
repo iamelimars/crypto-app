@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styles from './CoinListItem.css'
 
+import numeral from 'numeral'
+
 
 const coinListItem = ( props ) => {
     return (
@@ -14,10 +16,15 @@ const coinListItem = ( props ) => {
                         <span className={styles.name}>{props.coin.name}</span>
                     </div>
                     <div className={styles.price}>
-                        <span>{props.coin.price}</span>
+                        {props.coin.price < 1 ? 
+                            <span>{numeral(props.coin.price).format('$0,0.000')}</span>
+                            :
+                            <span>{numeral(props.coin.price).format('$0,0.00')}</span>
+                            
+                        }
                     </div>
                     <div className={styles.marketCap}>
-                        <span>{props.coin.marketCap}</span>
+                        <span>{numeral(props.coin.marketCap).format('($ 0.00 a)')}</span>
                     </div>
                     <div className={styles.change}>
                     { props.coin.change > 0 ?
