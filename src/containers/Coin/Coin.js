@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import * as moment from 'moment';
 
+const plotStyle = {
+    margin: '0 auto',
+    border: '1px solid black',
+    // height: '85vh',
+    // minHeight: '300px',
+    maxWidth: '80vw',
+    padding: '30px'
+}
+
 class Coin extends Component {
 
     constructor(props) {
@@ -47,8 +56,7 @@ class Coin extends Component {
 
     }
 
-
-
+    
 
     render() {
         return (
@@ -59,45 +67,46 @@ class Coin extends Component {
                     :
                     <div>
                         {this.props.coin.TimeFrom}
-                        <Plot
+                        <Plot 
+                            style={plotStyle}
                             data={[
                                 {
-                                    x: [1, 2, 3],
-                                    y: [2, 6, 3],
+                                    x: this.state.timeArray,
+                                    y: this.state.closeArray,
                                     type: 'scatter',
                                     mode: 'lines',
                                     line: { color: 'green' },
                                 }
                             ]}
-                            layout={{
-                                width: '100%',
-                                height: '100%',
-                                paper_bgcolor: 'transparent',
-                                plot_bgcolor: 'transparent',
-                                scene: {
-                                    xaxis: {
-                                        title: '',
-                                        autorange: true,
-                                        showgrid: false,
-                                        zeroline: false,
-                                        showline: false,
-                                        autotick: true,
-                                        ticks: '',
-                                        showticklabels: false
-                                    },
-                                    yaxis: {
-                                        title: '',
-                                        autorange: true,
-                                        showgrid: false,
-                                        zeroline: false,
-                                        showline: false,
-                                        autotick: true,
-                                        ticks: '',
-                                        showticklabels: false
-                                    },
-                                }
-                            }}
-                            config={{ displayModeBar: false }}
+                            // layout={{
+                            //     width: '100%',
+                            //     height: '100%',
+                            //     paper_bgcolor: 'transparent',
+                            //     plot_bgcolor: 'transparent',
+                            //     scene: {
+                            //         xaxis: {
+                            //             title: '',
+                            //             autorange: true,
+                            //             showgrid: false,
+                            //             zeroline: false,
+                            //             showline: false,
+                            //             autotick: true,
+                            //             ticks: '',
+                            //             showticklabels: false
+                            //         },
+                            //         yaxis: {
+                            //             title: '',
+                            //             autorange: true,
+                            //             showgrid: false,
+                            //             zeroline: false,
+                            //             showline: false,
+                            //             autotick: true,
+                            //             ticks: '',
+                            //             showticklabels: false
+                            //         },
+                            //     }
+                            // }}
+                            config={{ displayModeBar: false, responsive: true }}
                         />
                     </div>
 
