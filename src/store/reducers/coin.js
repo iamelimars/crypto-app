@@ -1,7 +1,10 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    coin: {},
+    coin: {
+        coinHistory:{},
+        coinInfo:{}
+    },
     loading: false
 }
 
