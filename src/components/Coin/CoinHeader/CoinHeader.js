@@ -10,7 +10,11 @@ const coinHeader = (props) => {
             <span className={styles.name}>{props.coin.name}</span>
             <span className={styles.price}><span className={styles.sign}>$</span>{numeral(props.coin.price).format('0,0.00')}</span>
 
-            <span>{props.coin.change}%</span>
+            {props.coin.change > 0 ?
+                <span className={styles.green}>+{props.coin.change}%</span>
+                :
+                <span className={styles.red}>{props.coin.change}%</span>
+            }
         </div>
     )
 }
