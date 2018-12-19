@@ -5,6 +5,8 @@ import * as moment from 'moment';
 import numeral from 'numeral'
 import { Line } from 'react-chartjs-2'
 
+import CoinHeader from '../../components/Coin/CoinHeader/CoinHeader'
+
 
 
 class Coin extends Component {
@@ -108,16 +110,13 @@ class Coin extends Component {
                             :
                             <div >
                                 <div>
-                                    <img src={this.props.coinInfo.iconUrl} alt="" width="30px" height="30px"/>
-                                    <h1>{this.props.coinInfo.name}</h1>
-                                    <h1>{numeral(this.props.coinInfo.price).format('$0,0.00')}</h1>
-                                    <h3>{this.props.coinInfo.change}%</h3>
+                                    <CoinHeader coin={this.props.coinInfo} />
                                 </div>
                                 <Line
 
                                     data={this.state.chartData}
                                     width={100}
-                                    height={50}
+                                    height={40}
                                     options={{
                                         maintainAspectRatio: true,
                                         responsive: true,

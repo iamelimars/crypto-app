@@ -4,6 +4,8 @@ import './App.css';
 
 import Home from '../Home/Home'
 import Coin from '../Coin/Coin'
+import Ticker from '../CryptoStream/CryptoStream'
+import NoMatchFound from '../../components/Common/NoMatchFound/NoMatchFound'
 
 class App extends Component {
 
@@ -16,6 +18,8 @@ class App extends Component {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/coin/:coin" component={Coin} />
+        <Route path="/ticker" component={Ticker}/>
+        <Route component={NoMatchFound} />
       </Switch>
     );
   }
