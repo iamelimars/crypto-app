@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import * as moment from 'moment';
 import numeral from 'numeral'
-import { Line } from 'react-chartjs-2'
 
 import CoinChart from '../../components/Coin/CoinChart/CoinChart'
 import CoinHeader from '../../components/Coin/CoinHeader/CoinHeader'
+import CoinBody from '../../components/Coin/CoinBody/CoinBody'
 
 
 
@@ -38,11 +38,10 @@ class Coin extends Component {
         let dataArray = []
         let currentObj = {}
 
-
-
-
-        this.props.onFetchCoin(this.props.match.params.coin)
+        this.props.onFetchCoin(this.props.match.params.coin, this.props.match.params.symbol)
             .then(() => {
+                console.log(this.props.coinFullData);
+                
                 this.props.coin.map(coinData => {
                     time = moment(coinData.timestamp).format("d h:mm a");
 
@@ -109,10 +108,10 @@ class Coin extends Component {
                         {this.props.loading ?
                             <div>Loading...</div>
                             :
-                            <div >
-                                    <CoinHeader coin={this.props.coinInfo} />
-                                    <CoinChart data={this.state.chartData}/>
-                                
+                            <div>
+                                <CoinHeader coin={this.props.coinInfo} />
+                                <CoinChart data={this.state.chartData} />
+                                <CoinBody coin={this.props.coinInfo} coinFullData={this.props.coinFullData} />
                             </div>
                         }
                     </div>
@@ -126,13 +125,14 @@ const mapStateToProps = state => {
     return {
         coin: state.coin.coin.coinHistory.history,
         coinInfo: state.coin.coin.coinInfo.coin,
+        coinFullData: state.coin.coin.coinFullData,
         loading: state.coin.loading
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchCoin: (coin) => dispatch(actions.fetchCoin(coin))
+        onFetchCoin: (coin, symbol) => dispatch(actions.fetchCoin(coin, symbol))
     }
 }
 

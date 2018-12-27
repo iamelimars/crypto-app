@@ -50,6 +50,7 @@
     "react-chartjs-2": "^2.7.4",
     "react-dev-utils": "^6.1.1",
     "react-dom": "^16.6.3",
+    "react-grid-system": "^4.3.1",
     "react-plotly.js": "^2.2.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",

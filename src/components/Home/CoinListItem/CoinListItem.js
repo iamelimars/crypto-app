@@ -8,7 +8,7 @@ import numeral from 'numeral'
 const coinListItem = ( props ) => {
     return (
         <div className="coins">
-            <Link className={styles.coin} to={`/coin/${props.coin.id}`}>
+            <Link className={styles.coin} to={`/coin/${props.coin.id}/${props.coin.symbol}`}>
                 <div className={styles.wrapper}> 
                     <div className={styles.profile}>
                         {/* <img className={styles.logo} src={`https://www.cryptocompare.com${props.coin.CoinInfo.ImageUrl}`} alt="" width="23" height="23"/> */}

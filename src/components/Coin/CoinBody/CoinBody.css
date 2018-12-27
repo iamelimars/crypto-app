@@ -1,0 +1,49 @@
+.body {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    /* padding: 30px; */
+}
+
+.price_section {
+    height: 100px;
+}
+
+.price_section div {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card div {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 2px 30px 2px 30px;
+}
+
+.change_section {
+    
+}
+
+.info_section {
+
+}
+
+.volume_section {
+
+}
+
+.total_volume_section {
+
+}
+
+.data_section {
+
+}
+
+.description_section {
+
+}

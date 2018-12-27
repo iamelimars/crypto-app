@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     coin: {
         coinHistory:{},
-        coinInfo:{}
+        coinInfo:{},
+        coinFullData: {}
     },
     loading: false
 }
