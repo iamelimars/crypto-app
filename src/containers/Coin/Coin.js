@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import * as moment from 'moment';
 import numeral from 'numeral'
+import ScrollOut from "scroll-out";
+
 
 import CoinChart from '../../components/Coin/CoinChart/CoinChart'
 import CoinHeader from '../../components/Coin/CoinHeader/CoinHeader'
@@ -29,6 +31,8 @@ class Coin extends Component {
     }
 
     componentDidMount() {
+
+        ScrollOut();
 
 
         let times = [];
@@ -110,7 +114,7 @@ class Coin extends Component {
                             <Loading />
                             :
                             <div>
-                                <CoinHeader coin={this.props.coinInfo} />
+                                <CoinHeader coin={this.props.coinInfo} data-scroll />
                                 <CoinChart data={this.state.chartData} />
                                 <CoinBody coin={this.props.coinInfo} coinFullData={this.props.coinFullData} />
                             </div>
