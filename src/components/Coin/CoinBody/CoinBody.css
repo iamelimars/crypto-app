@@ -7,8 +7,20 @@
     /* padding: 30px; */
 }
 
+.section_title {
+    text-align: right;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.3);
+}
+.row_title {
+    /* color: rgba(250,117,177, 1);
+    text-shadow: 0px 0px 7px rgba(250,117,177, 0.5); */
+    
+}
 .price_section {
     height: 100px;
+    padding: 30px;
+    margin-bottom: 100px;
 }
 
 .price_section div {
@@ -25,25 +37,69 @@
 }
 
 .change_section {
-    
+    padding: 30px;
+}
+
+.change_section>div {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* padding: 2px 30px 2px 30px; */
+    padding: 30px;
+}
+.change_section_data {
+    text-align: left;
 }
 
 .info_section {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
 
+.info_section_data {
+    text-align: left;
 }
 
 .volume_section {
-
+    padding: 30px;
+}
+.volume_section>div {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* padding: 2px 30px 2px 30px; */
+    padding: 30px;
+}
+.volume_section_data {
+    text-align: left;
 }
 
 .total_volume_section {
-
+    padding: 30px;
+}
+.total_volume_section>div {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* padding: 2px 30px 2px 30px; */
+    padding: 30px;
+}
+.total_volume_section_data {
+    text-align: left;
 }
 
 .data_section {
-
+    padding: 30px;
+}
+.data_section_data {
+    text-align: left;
 }
 
 .description_section {
-
+    padding: 30px;
 }
+.description_section_title {
+    text-align: center;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* rgba(143,123,229, 1) */

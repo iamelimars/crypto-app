@@ -7,6 +7,7 @@ import numeral from 'numeral'
 import CoinChart from '../../components/Coin/CoinChart/CoinChart'
 import CoinHeader from '../../components/Coin/CoinHeader/CoinHeader'
 import CoinBody from '../../components/Coin/CoinBody/CoinBody'
+import Loading from '../../components/Common/Loading/Loading'
 
 
 
@@ -102,11 +103,11 @@ class Coin extends Component {
         return (
             <div>
                 {!this.props.coinInfo ?
-                    <div></div>
+                    <Loading />
                     :
                     <div>
                         {this.props.loading ?
-                            <div>Loading...</div>
+                            <Loading />
                             :
                             <div>
                                 <CoinHeader coin={this.props.coinInfo} />
