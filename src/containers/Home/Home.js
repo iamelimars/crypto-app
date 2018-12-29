@@ -7,6 +7,7 @@ import styles from './Home.css'
 import Navbar from '../../components/Common/Navbar/Navbar'
 import Sticky from '../../components/Home/StickyHeader/StickyHeader'
 import CoinList from '../../components/Home/CoinList/CoinList'
+import Loading from '../../components/Common/Loading/Loading'
 
 class Home extends Component {
 
@@ -26,7 +27,7 @@ class Home extends Component {
     }
 
     componentWillReceiveProps() {
-        
+
 
     }
 
@@ -52,21 +53,29 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div id="nav" className={styles.overlay}>
-                    <div className={styles.overlayContent}>
-                        <Link to="/">Home</Link>
-                        <Link to="/">About</Link>
-                        <Link to="/">Contact</Link>
+                {this.props.loading ?
+                    <Loading />
+                    :
+                    <div>
+                        <div id="nav" className={styles.overlay}>
+                            <div className={styles.overlayContent}>
+                                <Link to="/">Home</Link>
+                                <Link to="/">About</Link>
+                                <Link to="/">Contact</Link>
+                            </div>
+                        </div>
+                        <Navbar menuStatus={this.state.menuOpen} menuClicked={() => this.menuClickedHandler()} />
+                        <Sticky />
+                        {this.props.coins ?
+                            <CoinList coins={this.props.coins} />
+                            :
+                            null
+                        }
                     </div>
-                </div>
-                <Navbar menuStatus={this.state.menuOpen} menuClicked={() => this.menuClickedHandler()} />
-                <Sticky />
-                {this.props.coins ?
-                    <CoinList coins={this.props.coins} />
-                    : 
-                    null
+
                 }
-                
+
+
             </div>
         )
     }
@@ -74,7 +83,8 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-        coins: state.home.coins.coins
+        coins: state.home.coins.coins,
+        loading: state.home.loading
     }
 }
 

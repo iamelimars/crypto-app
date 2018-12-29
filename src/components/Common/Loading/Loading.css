@@ -2,4 +2,77 @@
     width: 100vw;
     height: 100vh;
     background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    /* position: absolute; */
+    /* left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%); */
+    display: flex;
+    flex-direction: row;
+}
+
+.element {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+    margin: 5px;
+    animation-name: hover;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+    transform: translate3d(0, 50%, 0);
+}
+
+.element:nth-of-type(2) {
+    animation-delay: 0.2s;
+}
+
+.element:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
+
+.element:nth-of-type(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes hover {
+    0% {
+        transform: translate3d(0, 50%, 0)
+    }
+
+    100% {
+        transform: translate3d(0, -50%, 0)
+    }
+}
+
+.blue {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: cornflowerblue;
+}
+
+.red {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: palevioletred;
+}
+
+.green {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: mediumaquamarine;
 }
