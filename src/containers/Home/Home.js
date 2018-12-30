@@ -8,6 +8,7 @@ import Navbar from '../../components/Common/Navbar/Navbar'
 import Sticky from '../../components/Home/StickyHeader/StickyHeader'
 import CoinList from '../../components/Home/CoinList/CoinList'
 import Loading from '../../components/Common/Loading/Loading'
+import Hero from '../../components/Home/Hero/Hero'
 
 class Home extends Component {
 
@@ -15,14 +16,19 @@ class Home extends Component {
         super(props)
 
         this.state = {
-            menuOpen: false
+            menuOpen: false,
+            heroCoins: []
         }
     }
 
     componentDidMount() {
+        let topCoins = []
         this.props.onfetchCoins()
             .then(() => {
-                console.log(this.props.coins);
+                this.props.coins.slice(0, 4).map(i => {
+                    topCoins = [...topCoins, i]
+                })
+                this.setState({heroCoins: topCoins})
             })
     }
 
@@ -65,6 +71,7 @@ class Home extends Component {
                             </div>
                         </div>
                         <Navbar menuStatus={this.state.menuOpen} menuClicked={() => this.menuClickedHandler()} />
+                        <Hero coins={this.state.heroCoins} />
                         <Sticky />
                         {this.props.coins ?
                             <CoinList coins={this.props.coins} />
