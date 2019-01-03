@@ -28,6 +28,8 @@ class Home extends Component {
                 this.props.coins.slice(0, 4).map(i => {
                     topCoins = [...topCoins, i]
                 })
+                console.log(topCoins);
+                
                 this.setState({heroCoins: topCoins})
             })
     }
@@ -62,6 +64,10 @@ class Home extends Component {
                 {this.props.loading ?
                     <Loading />
                     :
+                    null
+                }
+                
+                
                     <div>
                         <div id="nav" className={styles.overlay}>
                             <div className={styles.overlayContent}>
@@ -80,7 +86,7 @@ class Home extends Component {
                         }
                     </div>
 
-                }
+                    
 
 
             </div>

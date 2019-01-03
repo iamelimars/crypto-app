@@ -30,6 +30,21 @@ svg {
     height: 80vh;
     min-height: 700px;
 }
+.price span {
+    /* background-color: red; */
+    padding: 0 10px;
+    border-radius: 11px;
+}
+
+.tickGreen {
+    background-color: green;
+    color: white;
+}
+
+.tickRed {
+    background-color: red;
+    color: white;
+}
 
 /* Media Queries */
 

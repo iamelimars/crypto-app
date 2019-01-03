@@ -48,12 +48,14 @@ class Coin extends Component {
                 console.log(this.props.coinFullData);
                 
                 this.props.coin.map(coinData => {
-                    time = moment(coinData.timestamp).format("d h:mm a");
+                    // time = moment(coinData.timestamp).format("DDD hh:mm a");
+                    time = moment(coinData.timestamp).format("X");
+
 
                     price = numeral(coinData.price).format('0,0.00');
 
-                    times = [...times, time];
-                    // times = [...times, coinData.timestamp]
+                    // times = [...times, time];
+                    times = [...times, coinData.timestamp]
                     closePrices = [...closePrices, price];
 
                     currentObj = {
@@ -98,7 +100,7 @@ class Coin extends Component {
                     closeArray: [...closePrices],
                     chartData: data
                 })
-                console.log(this.props.coinInfo.iconUrl);
+                console.log(times);
 
             })
     }

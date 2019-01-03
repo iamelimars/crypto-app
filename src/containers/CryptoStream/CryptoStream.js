@@ -1,10 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import io from 'socket.io-client';
+import styles from './CryptoStream.css'
+
+import numeral from 'numeral'
+import * as moment from 'moment'
 
 
 let CRYPTOCOMPARE_API = "https://streamer.cryptocompare.com/";
 let COINMARKET_API = "https://api.coinmarketcap.com/v1/ticker/";
+let cryptoIO;
 
 
 class Ticker extends Component {
@@ -12,13 +17,28 @@ class Ticker extends Component {
   constructor() {
     super();
     this.state = {
-      "coins": {}
+      "coins": {},
+      "subs": []
     };
   };
 
   componentWillMount() {
-    this.getAllCoins();
+    // cryptoIO = io.connect(CRYPTOCOMPARE_API);
+    console.log('mounting');
+    // if (this.props.isLoading === false) {
+      this.getAllCoins();
+    // }
+    
   };
+
+  componentWillUnmount() {
+    // io.removeAllListeners(CRYPTOCOMPARE_API)
+    // cryptoIO.emit('SubRemove', { subs: this.state.subs } );
+    console.log(cryptoIO);
+    
+    console.log('unmounting');
+    
+  }
 
   getAllCoins = () => {
     // Get all available coins from CoinMarketCap API.
@@ -31,23 +51,24 @@ class Ticker extends Component {
           coins[coin.symbol] = coin
           return null
         });
-        
+
         this.setState({ "coins": coins });
         this.subscribeCryptoStream();
       };
     });
-  };
+  }; 
 
   subscribeCryptoStream = () => {
     // Subscribe to CryptoCompare websocket API.
 
     let subs = [];
-    let cryptoIO = io.connect(CRYPTOCOMPARE_API);
+    cryptoIO = io.connect(CRYPTOCOMPARE_API);
 
     Object.keys(this.state.coins).map((key) => {
-      return subs.push("5~CCCAGG~"+ key +"~USD");
+      return subs.push("5~CCCAGG~" + key + "~USD");
     });
 
+    this.setState({"subs": subs})
     cryptoIO.emit("SubAdd", { "subs": subs });
 
     cryptoIO.on("m", (message) => {
@@ -57,10 +78,10 @@ class Ticker extends Component {
 
   updateCoin = (message) => {
     // Update coin with recent data from CryptoCompare websocket API.
-    
+
     message = message.split("~");
     let coins = Object.assign({}, this.state.coins);
-    
+
     if ((message[4] === "1") || (message[4] === "2")) {
 
       if (message[4] === "1") {
@@ -78,8 +99,7 @@ class Ticker extends Component {
 
       coins[message[2]].price_usd = message[5];
       this.setState({ "coins": coins });
-      console.log(this.state);
-      
+
 
       /*
         Reset coin status after short interval. This is needed to reset
@@ -98,9 +118,9 @@ class Ticker extends Component {
   getTickStyle = (coin) => {
     // Return css style based on coin status.
     if (coin.goUp) {
-      return " tickGreen ";
+      return styles.tickGreen;
     } else if (coin.goDown) {
-      return " tickRed ";
+      return styles.tickRed;
     } else {
       return " ";
     }
@@ -109,19 +129,25 @@ class Ticker extends Component {
   render() {
     return (
       <div>
-        <div className="container-fluid">
-          <div className="row">
-            {Object.keys(this.state.coins).map((key, index) => {
-              
+        <div className={styles.hero}>
+          <div className={styles.container}>
+            {Object.keys(this.state.coins).slice(0, 4).map((key, index) => {
+
               let coin = this.state.coins[key]
 
               return (
-                <div key={ index } className="col-4 col-sm-3 col-xl-2 p-0">
-                  <div className={"stock " + this.getTickStyle(coin) }>
-                    <p className="text-white m-0">{ coin.symbol }</p>
-                    <p className="text-white m-0">{ coin.price_usd }</p>
+                  <div className={styles.coin} key={index}>
+                    <span className={styles.title}>{coin.name}</span>
+                    <div className={styles.price}>
+                      <span className={this.getTickStyle(coin)}>{numeral(coin.price_usd).format('$0,0.00')} USD</span>
+                    </div>
+                    {/* <div>Last Updated - {moment(coin.last_updated).fromNow('s')}</div> */}
+                    <span>Market Cap</span>
+                    <span>{numeral(coin.market_cap_usd).format('$0,0.00')}</span>
+                    <span>% Change - {coin.percent_change_1h}</span>
+                    <span>Rank {coin.rank}</span>
                   </div>
-                </div>
+                 
               )
             })}
           </div>
@@ -133,3 +159,10 @@ class Ticker extends Component {
 
 
 export default Ticker;
+
+ {/* <div key={index} className="col-4 col-sm-3 col-xl-2 p-0">
+                    <div className={"stock " + this.getTickStyle(coin)}>
+                      <p className="text-white m-0">{coin.symbol}</p>
+                      <p className="text-white m-0">{coin.price_usd}</p>
+                    </div>
+                  </div> */}
