@@ -59,17 +59,17 @@ class Hero extends Component {
                 <Ticker />
 
 
-                <svg width="600" height="280" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" svg="http://www.w3.org/2000/svg">
+                <svg className={styles.svg} width="600" height="280" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" svg="http://www.w3.org/2000/svg">
                     <g>
                         <path id="svg_4" d="m-2,-52.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-145.92534,122.88948 -463.85068,-190.88945 -641.77607,0l0,-296.80101z" fill="#fff" />
                     </g>
                 </svg>
-                <svg width="600" height="280" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" svg="http://www.w3.org/2000/svg">
+                <svg className={styles.svg} width="600" height="280" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" svg="http://www.w3.org/2000/svg">
                     <g>
                         <path id="svg_3" d="m-2,-52.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-145.92534,122.88948 -463.85068,-190.88945 -641.77607,0l0,-296.80101z" fill="#fff" />
                     </g>
                 </svg>
-                <svg width="600" height="280" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" svg="http://www.w3.org/2000/svg">
+                <svg className={styles.svg} width="600" height="280" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" svg="http://www.w3.org/2000/svg">
                     <g>
                         <path id="svg_2" d="m-2,-52.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-145.92534,122.88948 -463.85068,-190.88945 -641.77607,0l0,-296.80101z" fill="#fff" />
                     </g>

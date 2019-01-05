@@ -20,7 +20,7 @@
 
 }
 
-svg {
+/* svg {
     display: block;
     width: 100%;
     position: absolute;
@@ -29,21 +29,84 @@ svg {
     z-index: -10;
     height: 80vh;
     min-height: 700px;
+} */
+.title {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
 }
 .price span {
     /* background-color: red; */
     padding: 0 10px;
     border-radius: 11px;
+    margin-left: -10px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.price_info {
+    font-size: 0.7rem !important;
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+.price_symbol {
+    font-size: 0.7rem !important;
+    padding-right: 0 !important;
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.market_cap {
+    color: rgba(0, 0, 0, 0.7);
+}
+.market_cap_title {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 0.8rem;
 }
 
 .tickGreen {
-    background-color: green;
-    color: white;
+    animation-name: green-animation;
+    animation-duration: 2s;
 }
 
 .tickRed {
-    background-color: red;
-    color: white;
+    animation-name: red-animation;
+    animation-duration: 2s;
+}
+
+@keyframes green-animation {
+    0%   {background-color: #ABC9A9;}
+    100% {background-color: rgba(255, 255, 255, 0);}
+}
+@keyframes red-animation {
+    0%   {background-color: rgb(254, 103, 101);}
+    100% {background-color: rgba(255, 255, 255, 0);}
+}
+
+
+.percent_green {
+    color: rgb(110, 173, 106);
+    font-weight: 700;
+}
+
+.percent_red {
+    color: rgb(254, 103, 101);
+    font-weight: 700;
+}
+
+.percent_info {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 0.7rem;
+    
+}
+
+.rank {
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+}
+
+.rank_info {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.4);
 }
 
 /* Media Queries */
@@ -58,11 +121,11 @@ svg {
         height: 90vh;
         min-height: 1100px;
     }
-    svg {
+    /* svg {
         
         height: 100%;
         min-height: 1200px;
-    }
+    } */
  }
 
 @media only screen and (min-width: 480px) and (max-width: 767px){ 
@@ -74,11 +137,11 @@ svg {
         height: 90vh;
         min-height: 1100px;
     }
-    svg {
+    /* svg {
         
         height: 100%;
         min-height: 1200px;
-    }
+    } */
     
     
  }

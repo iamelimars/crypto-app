@@ -9,6 +9,7 @@ import Sticky from '../../components/Home/StickyHeader/StickyHeader'
 import CoinList from '../../components/Home/CoinList/CoinList'
 import Loading from '../../components/Common/Loading/Loading'
 import Hero from '../../components/Home/Hero/Hero'
+import Footer from '../../components/Common/Footer/Footer'
 
 class Home extends Component {
 
@@ -66,8 +67,6 @@ class Home extends Component {
                     :
                     null
                 }
-                
-                
                     <div>
                         <div id="nav" className={styles.overlay}>
                             <div className={styles.overlayContent}>
@@ -84,6 +83,7 @@ class Home extends Component {
                             :
                             null
                         }
+                        <Footer />
                     </div>
 
                     

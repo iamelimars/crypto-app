@@ -110,7 +110,7 @@ class Ticker extends Component {
         coins[message[2]].goUp = false
         coins[message[2]].goDown = false
         this.setState({ "coins": coins })
-      }, 1000);
+      }, 2000);
 
     };
   };
@@ -139,13 +139,18 @@ class Ticker extends Component {
                   <div className={styles.coin} key={index}>
                     <span className={styles.title}>{coin.name}</span>
                     <div className={styles.price}>
-                      <span className={this.getTickStyle(coin)}>{numeral(coin.price_usd).format('$0,0.00')} USD</span>
+                      <span className={this.getTickStyle(coin)}><span className={styles.price_symbol}>$</span>{numeral(coin.price_usd).format('0,0.00')} <span className={styles.price_info}>USD</span></span>
                     </div>
                     {/* <div>Last Updated - {moment(coin.last_updated).fromNow('s')}</div> */}
-                    <span>Market Cap</span>
-                    <span>{numeral(coin.market_cap_usd).format('$0,0.00')}</span>
-                    <span>% Change - {coin.percent_change_1h}</span>
-                    <span>Rank {coin.rank}</span>
+                    <span className={styles.market_cap_title}>Market Cap</span>
+                    <span className={styles.market_cap}>{numeral(coin.market_cap_usd).format('$0,0.00')}</span>
+                    {coin.percent_change_1h > 0 ?
+                      <span className={styles.percent_green}>{coin.percent_change_1h}<span className={styles.percent_info}>%(1h)</span></span>
+                    :
+                      <span className={styles.percent_red}>{coin.percent_change_1h}<span className={styles.percent_info}>%(1h)</span></span>
+                    }
+                    
+                    <span className={styles.rank}><span className={styles.rank_info}>Rank</span> {coin.rank}</span>
                   </div>
                  
               )

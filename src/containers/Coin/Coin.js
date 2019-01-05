@@ -10,6 +10,7 @@ import CoinChart from '../../components/Coin/CoinChart/CoinChart'
 import CoinHeader from '../../components/Coin/CoinHeader/CoinHeader'
 import CoinBody from '../../components/Coin/CoinBody/CoinBody'
 import Loading from '../../components/Common/Loading/Loading'
+import Footer from '../../components/Common/Footer/Footer'
 
 
 
@@ -119,6 +120,7 @@ class Coin extends Component {
                                 <CoinHeader coin={this.props.coinInfo} data-scroll />
                                 <CoinChart data={this.state.chartData} />
                                 <CoinBody coin={this.props.coinInfo} coinFullData={this.props.coinFullData} />
+                                <Footer />
                             </div>
                         }
                     </div>

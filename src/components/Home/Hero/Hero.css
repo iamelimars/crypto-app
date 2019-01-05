@@ -1,6 +1,7 @@
 
 .hero {
     height: 70vh;
+    padding-top: 4rem;
 }
 
 .container {
@@ -20,7 +21,7 @@
 
 }
 
-svg {
+.svg {
     display: block;
     width: 100%;
     position: absolute;
@@ -43,7 +44,7 @@ svg {
         height: 90vh;
         min-height: 1100px;
     }
-    svg {
+    .svg {
         
         height: 100%;
         min-height: 1200px;
@@ -59,7 +60,7 @@ svg {
         height: 90vh;
         min-height: 1100px;
     }
-    svg {
+    .svg {
         
         height: 100%;
         min-height: 1200px;

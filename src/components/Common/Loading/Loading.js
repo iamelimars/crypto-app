@@ -6,11 +6,13 @@ import anime from 'animejs';
 class Loading extends Component {
     constructor() {
         super();
-
+         this.body = document.getElementsByTagName("BODY")[0];
         this.redRef = React.createRef();
     }
 
-    componentDidMount() {
+    componentDidMount() {        
+        this.body.style.overflow = "hidden";
+
         this.animeRef = anime({
             targets: '#el',
             backgroundColor: [
@@ -25,6 +27,9 @@ class Loading extends Component {
             direction: 'alternate',
             easing: 'easeInOutQuad'
         })
+    }
+    componentWillUnmount() {
+        this.body.style.overflow = "visible";
     }
 
     render() {
