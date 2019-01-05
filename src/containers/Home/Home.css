@@ -5,12 +5,12 @@
 
 /* Menu overlay */
 .overlay {
-    height: 100%;
-    width: 0;
+    height: 0;
+    width: 100%;
     position: fixed;
     z-index: 1;
-    top: 0;
-    left: 0;
+    bottom: 0;
+    right: 0;
     background: -moz-linear-gradient(left, rgba(148,127,238,1) 0%, rgba(251,117,177,1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left, rgba(148,127,238,1) 0%,rgba(251,117,177,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, rgba(148,127,238,1) 0%,rgba(251,117,177,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -29,12 +29,13 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+    font-size: 1.5rem;
   }
   
   .overlay a {
     padding: 8px;
     text-decoration: none;
-    font-size: 36px;
+    font-size: 1.5rem;
     color: #fff;
     display: block;
     transition: 0.3s;

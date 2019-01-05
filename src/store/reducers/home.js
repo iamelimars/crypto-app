@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     coins: [],
-    loading: false
+    loading: false,
+    error: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,18 +11,21 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_COINS_START:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                error: null
             }
         case actionTypes.FETCH_COINS_SUCCESS:
             return {
                 ...state,
                 coins:action.coins,
-                loading: false
+                loading: false,
+                error: null
             }
         case actionTypes.FETCH_COINS_FAIL:
             return {
                 ...state,
-                loading: false
+                loading: false,
+                error: action.error
             }
         default:
             return state

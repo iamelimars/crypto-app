@@ -4,7 +4,6 @@ import io from 'socket.io-client';
 import styles from './CryptoStream.css'
 
 import numeral from 'numeral'
-import * as moment from 'moment'
 
 
 let CRYPTOCOMPARE_API = "https://streamer.cryptocompare.com/";
@@ -24,7 +23,6 @@ class Ticker extends Component {
 
   componentWillMount() {
     // cryptoIO = io.connect(CRYPTOCOMPARE_API);
-    console.log('mounting');
     // if (this.props.isLoading === false) {
       this.getAllCoins();
     // }
@@ -34,9 +32,7 @@ class Ticker extends Component {
   componentWillUnmount() {
     // io.removeAllListeners(CRYPTOCOMPARE_API)
     // cryptoIO.emit('SubRemove', { subs: this.state.subs } );
-    console.log(cryptoIO);
     
-    console.log('unmounting');
     
   }
 
@@ -141,7 +137,6 @@ class Ticker extends Component {
                     <div className={styles.price}>
                       <span className={this.getTickStyle(coin)}><span className={styles.price_symbol}>$</span>{numeral(coin.price_usd).format('0,0.00')} <span className={styles.price_info}>USD</span></span>
                     </div>
-                    {/* <div>Last Updated - {moment(coin.last_updated).fromNow('s')}</div> */}
                     <span className={styles.market_cap_title}>Market Cap</span>
                     <span className={styles.market_cap}>{numeral(coin.market_cap_usd).format('$0,0.00')}</span>
                     {coin.percent_change_1h > 0 ?
@@ -165,9 +160,3 @@ class Ticker extends Component {
 
 export default Ticker;
 
- {/* <div key={index} className="col-4 col-sm-3 col-xl-2 p-0">
-                    <div className={"stock " + this.getTickStyle(coin)}>
-                      <p className="text-white m-0">{coin.symbol}</p>
-                      <p className="text-white m-0">{coin.price_usd}</p>
-                    </div>
-                  </div> */}

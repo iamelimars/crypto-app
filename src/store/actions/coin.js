@@ -36,11 +36,6 @@ export const fetchCoin = (coin, symbol) => {
             //     dispatch(fetchCoinSuccess(res.data.data))
             // })
             .then(axios.spread((resHistory, resData, resFullData) => {
-                console.log(resHistory.data.data);
-                console.log(resData.data.data);
-                console.log(resFullData.data.Data);
-                
-
                 let data = {
                     coinHistory: resHistory.data.data,
                     coinInfo: resData.data.data,

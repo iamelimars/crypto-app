@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './CoinBody.css'
 import { Container, Row, Col } from 'react-grid-system';
-import * as moment from 'moment';
 import numeral from 'numeral'
 
 

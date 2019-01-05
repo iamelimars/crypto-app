@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import anime from 'animejs'
 import styles from './Hero.css'
-import numeral from 'numeral'
-import * as moment from 'moment'
 
 import Ticker from '../../../containers/CryptoStream/CryptoStream'
 
