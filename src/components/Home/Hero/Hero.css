@@ -1,7 +1,38 @@
 
 .hero {
-    height: 70vh;
     padding-top: 4rem;
+    padding-bottom: 4rem;
+    /* background: rgb(255,255,255); */
+    /* background: -moz-linear-gradient(top, rgba(255,255,255,1) 10%, rgba(125,185,232,0) 100%); 
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 10%,rgba(125,185,232,0) 100%); 
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 10%,rgba(125,185,232,0) 100%);  */
+}
+
+.heroContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.heroText {
+    margin-bottom: 2em;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.heroText > h2 {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #FFF;
+    margin: 0;
+}
+.heroText > h3 {
+    font-size: 1.6rem;
+    color:#CB79CD;
+    margin: 0 30px;
 }
 
 .container {
@@ -25,10 +56,10 @@
     display: block;
     width: 100%;
     position: absolute;
-    opacity: .7;
+    opacity: 1;
     top: 0;
     z-index: -10;
-    height: 80vh;
+    height: 90vh;
     min-height: 700px;
 }
 
@@ -41,8 +72,8 @@
     }
 
     .hero {
-        height: 90vh;
-        min-height: 1100px;
+        /* height: 90vh; */
+        /* min-height: 1100px; */
     }
     .svg {
         
@@ -57,8 +88,8 @@
         padding: 20px 25%;
     }
     .hero {
-        height: 90vh;
-        min-height: 1100px;
+        /* height: 90vh; */
+        /* min-height: 1100px; */
     }
     .svg {
         

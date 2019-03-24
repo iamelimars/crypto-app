@@ -11,6 +11,7 @@ import Loading from '../../components/Common/Loading/Loading'
 import Hero from '../../components/Home/Hero/Hero'
 import Footer from '../../components/Common/Footer/Footer'
 import ErrorPage from '../../components/Common/ErrorPage/ErrorPage'
+import Ticker from '../CryptoStream/CryptoStream';
 
 class Home extends Component {
 
@@ -89,6 +90,7 @@ class Home extends Component {
                         </div>
                         <Navbar menuStatus={this.state.menuOpen} menuClicked={() => this.menuClickedHandler()} />
                         <Hero coins={this.state.heroCoins} />
+                        <Ticker />
                         <Sticky />
                         {this.props.coins ?
                             <CoinList coins={this.props.coins} />
