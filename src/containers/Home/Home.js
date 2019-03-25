@@ -77,9 +77,7 @@ class Home extends Component {
             <div>
                 {this.props.loading ?
                     <Loading />
-                    :
-                    null
-                }
+                    :                
                     <div>
                         <div id="nav" className={styles.overlay}>
                             <div className={styles.overlayContent}>
@@ -99,10 +97,7 @@ class Home extends Component {
                         }
                         <Footer />
                     </div>
-
-                    
-
-
+                }
             </div>
         )
     }
