@@ -51,14 +51,15 @@ class Hero extends Component {
 
     render() {
         return (
-            <div className={styles.hero}>
+            <div className={styles.hero} data-test="heroComponent">
                 <div className={styles.heroContainer}>
-                    <div className={styles.heroText}>
+                    <div className={styles.heroText} data-test="heroText">
                         <h2>Live Cryptocurrency <br/> Prices</h2>
                         <h3>&</h3>
                         <h2>Compare Rankings</h2>
                     </div>
                     <img
+                        data-test="heroImage"
                         style={{
                             width: '35%',
                             minWidth: '350px',
