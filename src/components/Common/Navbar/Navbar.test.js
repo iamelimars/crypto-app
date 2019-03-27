@@ -1,22 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ErrorPage from './ErrorPage';
+import Navbar from './Navbar';
 import { findByTestAttr } from '../../../../Utils';
-
 const setUp = (props={}) => {
-    const component = shallow(<ErrorPage {...props} />);
+    const component = shallow(<Navbar {...props} />);
     return component
 }
-
-describe("<ErrorPage />",  () => {
+describe('<Navbar />',  () => {
     let component;
     beforeEach(() => {
         component = setUp();
     })
-
-    it("Should render page without errors", () => {
-        const wrapper = findByTestAttr(component, 'errorContainer');
+    it('Should render page without errors', () => {
+        const wrapper = findByTestAttr(component, 'navbarContainer');
         expect(wrapper.length).toBe(1);
     })
 })
-

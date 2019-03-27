@@ -10,7 +10,7 @@ const navBar = (props) => {
     
     return (
         <div>
-            <div className={styles.nav}>
+            <div className={styles.nav} data-test="navbarContainer">
                 <Link to="/">
                     <img className={styles.logo} src={logo} alt="" />
                 </Link>

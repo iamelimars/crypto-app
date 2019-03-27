@@ -1,22 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ErrorPage from './ErrorPage';
+import Loading from './Loading';
 import { findByTestAttr } from '../../../../Utils';
-
 const setUp = (props={}) => {
-    const component = shallow(<ErrorPage {...props} />);
+    const component = shallow(<Loading {...props} />);
     return component
 }
-
-describe("<ErrorPage />",  () => {
+describe('<Loading />',  () => {
     let component;
     beforeEach(() => {
         component = setUp();
     })
-
-    it("Should render page without errors", () => {
-        const wrapper = findByTestAttr(component, 'errorContainer');
+    it('Should render page without errors', () => {
+        const wrapper = findByTestAttr(component, 'loadingContainer');
         expect(wrapper.length).toBe(1);
     })
 })
-
