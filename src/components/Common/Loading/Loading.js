@@ -34,7 +34,7 @@ class Loading extends Component {
 
     render() {
         return (
-            <div className={styles.page}>
+            <div className={styles.page} data-test="loadingContainer">
                 <div className={styles.center}>
                     <div id="el" className={styles.element} ref={this.redRef} />
                     <div id="el" className={styles.element} />
