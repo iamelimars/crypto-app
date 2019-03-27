@@ -5,9 +5,13 @@ import styles from './CoinListItem.css'
 import numeral from 'numeral'
 
 
+
 const coinListItem = ( props ) => {
+    if (!props.coin) {
+        return null
+    }
     return (
-        <div className="coins">
+        <div className="coins" data-test="coinComponent">
             <Link className={styles.coin} to={`/coin/${props.coin.id}/${props.coin.symbol}`}>
                 <div className={styles.wrapper}> 
                     <div className={styles.profile}>
