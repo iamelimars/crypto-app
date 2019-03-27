@@ -22,7 +22,7 @@ class CoinHeader extends Component {
             return null
         }
         return (
-            <div className={styles.header} data-scroll data-test="coinHeaderContainer">
+            <div className={styles.header} data-test="coinHeaderContainer">
                 <Link className={styles.back_btn} to="/">
                     <svg className={styles.back_btn_svg} xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 129 129" enableBackground="new 0 0 129 129" width="30px" height="30px">
                         <g>
